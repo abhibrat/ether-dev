@@ -12,3 +12,6 @@ const address = "vitalik.eth";
 provider.getBalance(address).then((result) => {
   console.log(`${address} has`, String(ethers.formatEther(result)), "ETH");
 });
+
+let block = await provider.getBlock(22469950, true);
+console.log(block.getPrefetchedTransaction(block.transactions[0]));
