@@ -44,3 +44,18 @@ const name = await cryptoPunkContract.name();
 console.log("Name of NFT:", name);
 const owner = await cryptoPunkContract.ownerOf(1567);
 console.log("Owner of NFT:", owner);
+
+// call contract using calldata to send transactions
+const data =
+  "0x40c10f19000000000000000000000000378e8eb7add30b8d5365a2ca80ccc8351998c2990000000000000000000000000000000000000000000422ca8b0a00a425000000";
+
+console.log("Sending transaction using calldata ");
+const tx2 = await sepoliaSigner.sendTransaction({
+  to: sepoliaDaiAddress,
+  data: data,
+});
+
+console.log("Tx:", tx2.hash);
+await tx2.wait();
+
+console.log("Tx complete");
