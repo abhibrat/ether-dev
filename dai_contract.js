@@ -23,27 +23,27 @@ const myAddress = "0x378e8eB7adD30b8d5365A2ca80cCC8351998C299";
 let b = ethers.formatEther(await sepoliaDaiContract.balanceOf(myAddress));
 console.log("Current Balance:", b);
 
-// const tx = await sepoliaDaiContract.mint(
-//   myAddress,
-//   ethers.parseEther("5000000")
-// );
+const tx = await sepoliaDaiContract.mint(
+  myAddress,
+  ethers.parseEther("5000000")
+);
 
-// console.log("Minting Dai", tx.hash);
-// await tx.wait();
+console.log("Minting Dai", tx.hash);
+await tx.wait();
 
-// b = ethers.formatEther(await sepoliaDaiContract.balanceOf(myAddress));
-// console.log("Dai minted, Balance: ", b);
+b = ethers.formatEther(await sepoliaDaiContract.balanceOf(myAddress));
+console.log("Dai minted, Balance: ", b);
 
-// const cryptoPunkAddress = "0x000000000000003607fce1ac9e043a86675c5c2f";
-// const cryptoPunkContract = new ethers.Contract(
-//   cryptoPunkAddress,
-//   cryptoPunkAbi,
-//   provider
-// );
-// const name = await cryptoPunkContract.name();
-// console.log("Name of NFT:", name);
-// const owner = await cryptoPunkContract.ownerOf(1567);
-// console.log("Owner of NFT:", owner);
+const cryptoPunkAddress = "0x000000000000003607fce1ac9e043a86675c5c2f";
+const cryptoPunkContract = new ethers.Contract(
+  cryptoPunkAddress,
+  cryptoPunkAbi,
+  provider
+);
+const name = await cryptoPunkContract.name();
+console.log("Name of NFT:", name);
+const owner = await cryptoPunkContract.ownerOf(1567);
+console.log("Owner of NFT:", owner);
 
 // call contract using calldata to send transactions
 const data =
